@@ -1,0 +1,55 @@
+# Re-fetches the 7 PlacidWay pages daily and commits the rebuilt knowledge base if anything changed.
+# The commit to main is what redeploys the bot on Vercel, so a refresh needs no server of its own.
+name: Refresh knowledge base
+
+on:
+  schedule:
+    - cron: "17 3 * * *"  # daily, 03:17 UTC; GitHub says runs at the top of the hour are the most delayed
+  workflow_dispatch:  # the "Run workflow" button on GitHub, for a refresh on demand
+
+permissions:
+  contents: write  # to push the refreshed data/ files
+
+concurrency:
+  group: refresh  # a manual run and the nightly run must not push over each other
+  cancel-in-progress: false  # let a running refresh finish; the next one queues
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20  # a normal run is ~2 min (7 pages x 10 s robots.txt crawl delay, then embeddings)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+
+      # Runtime dependencies only; the refresh runs no tests.
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Fetches, extracts, checks and embeds. If a page fails a quality gate (missing expected
+      # phrase, too short, shrank too much) the build exits 1, the run fails, GitHub emails the
+      # repo owner, and nothing below runs, so the live bot keeps the last good data.
+      - name: Rebuild knowledge base
+        run: python -m ingest.build
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # Unchanged pages rebuild to identical files, so an empty diff means the site did not change.
+      - name: Commit if content changed
+        run: |
+          git add data/pages data/chunks.json data/embeddings.npy data/report.json
+          if git diff --cached --quiet; then
+            echo "No content changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh knowledge base from PlacidWay pages" -m "$(git diff --cached --stat)"
+          # Someone may have pushed to main during the ~2-minute build; replay this commit on top of
+          # theirs, or the push is rejected as non-fast-forward and the refresh is lost.
+          git pull --rebase origin main
+          git push
