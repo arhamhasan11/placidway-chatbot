@@ -1,0 +1,30 @@
+# Lint and unit tests on every push and pull request.
+# Needs no secrets: tests use the saved pages in tests/fixtures and mock the OpenAI API.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same Python as local development and Vercel (all read .python-version).
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check .
+
+      # `python -m` puts the repo root on sys.path so tests can `import config` and `import bot`;
+      # a bare `pytest` only adds tests/ and fails at collection.
+      - name: Unit tests
+        run: python -m pytest -q
