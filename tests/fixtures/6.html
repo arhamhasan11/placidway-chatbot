@@ -4440,12 +4440,12 @@ body main section .pw-card h3,
           
                       // var script = document.createElement('script')
             // script.type = 'text/javascript';
-            // script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBEo4oi26aPTvsdIgPkc36YtLeOiRulfx4&callback=initMap'
+            // script.src = 'https://maps.googleapis.com/maps/api/js?key=GOOGLE-API-KEY-REDACTED&callback=initMap'
             // head.appendChild(script);
 
             var address = $("#map_address").val();
             var iframe = document.createElement('iframe');
-            iframe.src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBEo4oi26aPTvsdIgPkc36YtLeOiRulfx4&q=' + encodeURIComponent(address);
+            iframe.src = 'https://www.google.com/maps/embed/v1/place?key=GOOGLE-API-KEY-REDACTED&q=' + encodeURIComponent(address);
             iframe.loading = 'lazy';
             iframe.width = '100%';
             iframe.height = '300';
