@@ -1,0 +1,96 @@
+User-agent: *
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: Anthropic-AI
+User-agent: Google-Extended
+User-agent: Googlebot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: meta-externalagent
+User-agent: FacebookExternalHit
+User-agent: Amazonbot
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: CCBot
+User-agent: Cohere-AI
+Allow: /
+# Specific Content & Language
+Disallow: /video/5469/
+Disallow: /language/
+# CDN & Asset Directories
+Allow: /cdn-cgi/image/*
+Disallow: /fonts/
+Disallow: /ckeditor/
+Disallow: /tiny_mce/
+Disallow: /htmlarea/
+Disallow: /msdropdown/
+Disallow: /prototype/
+# Admin & System
+Disallow: /admin/
+Disallow: /admin_new/
+Disallow: /v2_admin/
+Disallow: /cgi-bin/
+Disallow: /db/
+# Uploads & File Storage
+Disallow: /uploads/
+Disallow: /pw_documents/
+Disallow: /placidmail/attachment/
+Disallow: /editor_images/*.mp3
+Disallow: /modalfiles/
+Disallow: /windowfiles/
+Disallow: /backup/
+# Authentication & Security
+Disallow: /placidway_agent_login.php
+Disallow: /temp_login/
+Disallow: /two_fa/ajax.php
+# APIs & Dynamic Content
+Disallow: /ajax/
+Disallow: /api/v1/
+Disallow: /autocomplete/
+Disallow: /automail_attach_file/
+# Legacy & Deprecated Content
+Disallow: /old/
+Disallow: /blog_old/
+Disallow: /blog_include/
+Disallow: /newhome/
+Disallow: /samples/
+Disallow: /test/
+Disallow: /test_cal/
+# UI Components & Utilities
+Disallow: /banner/
+Disallow: /bottom_menu/
+Disallow: /sidebar-buttons/
+Disallow: /mobile_apps/
+Disallow: /paggingbutton/
+Disallow: /checkthumbnailSlider/
+Disallow: /Easy_tooltip/
+Disallow: /validation/
+Disallow: /new_validation/
+Disallow: /phpuploader/
+Disallow: /phpuploader_old/
+Disallow: /uploader/
+Disallow: /large_doc_upload/
+# Configuration & Data Files
+Disallow: /adapters/
+Disallow: /common/
+Disallow: /error/
+Disallow: /data/
+Disallow: /data_provider/
+Disallow: /agreement/
+Disallow: /auto/
+# Other
+Disallow: /css_cost/
+Disallow: /css_list/
+Disallow: /ean/
+Disallow: /static_title_files/
+Disallow: /survey/
+Disallow: /temporary_log/
+Disallow: /solutions/
+Disallow: /provider-center/includes/
+Crawl-delay: 10
+
+Sitemap: https://www.placidway.com/sitemap.xml

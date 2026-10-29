@@ -1,0 +1,52 @@
+# Every fixed reply the bot sends, per language. Edit wording here, not in code.
+# {quote_url} is filled from config.QUOTE_URL. Unknown languages fall back to "en".
+
+not_found:
+  en: "I couldn't find that in the PlacidWay pages I have, so I'd rather not guess. PlacidWay can answer it with a free, personalised quote: {quote_url}"
+  es: "No encontré esa información en las páginas de PlacidWay que tengo, así que prefiero no adivinar. PlacidWay puede responderle con un presupuesto gratuito y personalizado: {quote_url}"
+  ar: "لم أجد هذه المعلومة في صفحات PlacidWay المتوفرة لدي، لذا أفضّل عدم التخمين. يمكن لفريق PlacidWay الإجابة عليها مع عرض سعر مجاني ومخصص: {quote_url}"
+
+out_of_scope:
+  en: "Sorry, I can only help with questions about the treatments, clinic and prices on these PlacidWay pages (ITC Immunity Therapy Center in Tijuana and alternative medicine prices abroad)."
+  es: "Lo siento, solo puedo ayudar con preguntas sobre los tratamientos, la clínica y los precios de estas páginas de PlacidWay (ITC Immunity Therapy Center en Tijuana y precios de medicina alternativa en el extranjero)."
+  ar: "عذرًا، يمكنني فقط المساعدة في الأسئلة المتعلقة بالعلاجات والعيادة والأسعار في صفحات PlacidWay هذه (مركز ITC للعلاج المناعي في تيخوانا وأسعار الطب البديل في الخارج)."
+
+greeting:
+  en: "Hello! Ask me about ITC Immunity Therapy Center in Tijuana, its cancer treatment packages and prices, or alternative medicine prices abroad."
+  es: "¡Hola! Pregúnteme sobre ITC Immunity Therapy Center en Tijuana, sus paquetes y precios de tratamiento contra el cáncer, o precios de medicina alternativa en el extranjero."
+  ar: "مرحبًا! اسألني عن مركز ITC للعلاج المناعي في تيخوانا وباقات علاج السرطان وأسعارها، أو عن أسعار الطب البديل في الخارج."
+
+booking:
+  en: "I can't book appointments or check availability. PlacidWay's team can arrange that for you. Leave your details below or request a free quote: {quote_url}"
+  es: "No puedo reservar citas ni consultar disponibilidad. El equipo de PlacidWay puede organizarlo. Deje sus datos abajo o solicite un presupuesto gratuito: {quote_url}"
+  ar: "لا يمكنني حجز المواعيد أو التحقق من التوفر. يمكن لفريق PlacidWay ترتيب ذلك لك. اترك بياناتك أدناه أو اطلب عرض سعر مجاني: {quote_url}"
+
+guard_fallback:
+  en: "I couldn't verify an answer to that against the PlacidWay pages, so I won't guess. For exact details, request a free quote: {quote_url}"
+  es: "No pude verificar una respuesta con las páginas de PlacidWay, así que no voy a adivinar. Para detalles exactos, solicite un presupuesto gratuito: {quote_url}"
+  ar: "لم أتمكن من التحقق من إجابة لهذا السؤال في صفحات PlacidWay، لذا لن أخمّن. للحصول على تفاصيل دقيقة، اطلب عرض سعر مجاني: {quote_url}"
+
+busy:
+  en: "Sorry, I'm having trouble answering right now. Please try again in a minute, or contact PlacidWay directly: {quote_url}"
+  es: "Lo siento, ahora mismo tengo problemas para responder. Inténtelo de nuevo en un minuto o contacte directamente con PlacidWay: {quote_url}"
+  ar: "عذرًا، أواجه مشكلة في الإجابة الآن. يرجى المحاولة بعد دقيقة، أو التواصل مع PlacidWay مباشرة: {quote_url}"
+
+rate_limited:
+  en: "You're sending messages faster than I can handle. Please wait a moment and try again."
+  es: "Está enviando mensajes más rápido de lo que puedo procesar. Espere un momento e inténtelo de nuevo."
+  ar: "أنت ترسل الرسائل بسرعة أكبر مما يمكنني معالجته. يرجى الانتظار لحظة والمحاولة مرة أخرى."
+
+disclaimer:
+  en: "This is general information from PlacidWay's pages, not medical advice. Please discuss any treatment with your own doctor."
+  es: "Esta es información general de las páginas de PlacidWay, no consejo médico. Consulte cualquier tratamiento con su propio médico."
+  ar: "هذه معلومات عامة من صفحات PlacidWay وليست نصيحة طبية. يرجى مناقشة أي علاج مع طبيبك."
+
+lead_offer:
+  en: "Would you like PlacidWay to send you a free personalised quote? Leave your name and email."
+  es: "¿Desea que PlacidWay le envíe un presupuesto gratuito y personalizado? Deje su nombre y correo electrónico."
+  ar: "هل تود أن ترسل لك PlacidWay عرض سعر مجاني ومخصص؟ اترك اسمك وبريدك الإلكتروني."
+
+lead_thanks:
+  en: "Thank you! PlacidWay's team will contact you by email."
+  es: "¡Gracias! El equipo de PlacidWay se pondrá en contacto con usted por correo electrónico."
+  ar: "شكرًا لك! سيتواصل معك فريق PlacidWay عبر البريد الإلكتروني."

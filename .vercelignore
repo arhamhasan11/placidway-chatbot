@@ -1,0 +1,12 @@
+# Never uploaded by `vercel --prod`. Secrets are set in the Vercel dashboard instead.
+.env
+.env.*
+!.env.example
+# Local-only files: the virtual environment, caches, logs, eval output, tests.
+.venv
+__pycache__
+.pytest_cache
+.ruff_cache
+data/local_log.jsonl
+eval/out
+tests

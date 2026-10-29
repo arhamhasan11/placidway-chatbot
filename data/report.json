@@ -1,0 +1,64 @@
+{
+ "built_at": "2026-10-28T17:47:37+00:00",
+ "embed_model": "text-embedding-3-small",
+ "embedded": true,
+ "total_chunks": 208,
+ "pages": {
+  "itc-profile": {
+   "url": "https://www.placidway.com/profile/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center",
+   "label": "ITC Immunity Therapy Center – Clinic profile",
+   "chars": 19032,
+   "chunks": 56,
+   "table_rows": 1,
+   "sha": "fb144b61ee43a4de"
+  },
+  "adenocarcinoma-package": {
+   "url": "https://www.placidway.com/package/7903/Alternative-Adenocarcinoma-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC",
+   "label": "ITC Immunity Therapy Center – Alternative Adenocarcinoma Cancer Treatment Package in Tijuana",
+   "chars": 11237,
+   "chunks": 31,
+   "table_rows": 2,
+   "sha": "928c928f4949b6b5"
+  },
+  "adrenal-package": {
+   "url": "https://www.placidway.com/package/7902/Alternative-Adrenal-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC",
+   "label": "ITC Immunity Therapy Center – Alternative Adrenal Cancer Treatment Package in Tijuana",
+   "chars": 11369,
+   "chunks": 27,
+   "table_rows": 2,
+   "sha": "5c8ead319f383d5b"
+  },
+  "anal-package": {
+   "url": "https://www.placidway.com/package/7901/Alternative-Anal-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC",
+   "label": "ITC Immunity Therapy Center – Alternative Anal Cancer Treatment Package in Tijuana",
+   "chars": 11272,
+   "chunks": 26,
+   "table_rows": 2,
+   "sha": "8fdf6eaeca76cdaf"
+  },
+  "itc-videos": {
+   "url": "https://www.placidway.com/profile-videos/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center",
+   "label": "ITC Tijuana Videos – Alternative Cancer Treatment",
+   "chars": 15046,
+   "chunks": 17,
+   "table_rows": 0,
+   "sha": "5ed9ca9eee905723"
+  },
+  "itc-price-list": {
+   "url": "https://www.placidway.com/price-list/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center",
+   "label": "ITC Immunity Therapy Center – Price List",
+   "chars": 4668,
+   "chunks": 10,
+   "table_rows": 7,
+   "sha": "68e76f671e7fa73a"
+  },
+  "alt-medicine-prices": {
+   "url": "https://www.placidway.com/search-medical-pricings/Alternative-Medicine/All/1",
+   "label": "Alternative Medicine Cost Abroad – Compare Prices 2026",
+   "chars": 7284,
+   "chunks": 41,
+   "table_rows": 15,
+   "sha": "1bb0f9373e1f88a6"
+  }
+ }
+}

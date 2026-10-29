@@ -1,0 +1,84 @@
+# The ONLY pages the bot may read. The fetcher refuses any URL not listed here.
+# Adding a page = add an entry, then run: python -m ingest.build
+#
+# slug     short id used in file names and chunk ids
+# label    shown to users as the source title
+# expect   a phrase that must appear in the extracted text, or the refresh is rejected
+#          (catches error pages, bot challenges and redesigns)
+# fixture  saved copy in tests/fixtures/, used by tests and offline builds
+
+pages:
+  - slug: itc-profile
+    url: https://www.placidway.com/profile/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center
+    label: ITC Immunity Therapy Center – Clinic profile
+    expect: ITC Immunity Therapy Center
+    fixture: 1.html
+
+  - slug: adenocarcinoma-package
+    url: https://www.placidway.com/package/7903/Alternative-Adenocarcinoma-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC
+    label: ITC Immunity Therapy Center – Alternative Adenocarcinoma Cancer Treatment Package in Tijuana
+    expect: Adenocarcinoma
+    fixture: 2.html
+
+  - slug: adrenal-package
+    url: https://www.placidway.com/package/7902/Alternative-Adrenal-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC
+    label: ITC Immunity Therapy Center – Alternative Adrenal Cancer Treatment Package in Tijuana
+    expect: Adrenal
+    fixture: 3.html
+
+  - slug: anal-package
+    url: https://www.placidway.com/package/7901/Alternative-Anal-Cancer-Treatment-Package-in-Tijuana-Mexico-by-ITC
+    label: ITC Immunity Therapy Center – Alternative Anal Cancer Treatment Package in Tijuana
+    expect: Anal Cancer
+    fixture: 4.html
+
+  - slug: itc-videos
+    url: https://www.placidway.com/profile-videos/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center
+    label: ITC Tijuana Videos – Alternative Cancer Treatment
+    expect: Videos
+    fixture: 5.html
+
+  - slug: itc-price-list
+    url: https://www.placidway.com/price-list/5/Alternative-Cancer-Treatment-by-ITC-Immunity-Therapy-Center
+    label: ITC Immunity Therapy Center – Price List
+    expect: "18995"
+    fixture: 6.html
+
+  - slug: alt-medicine-prices
+    url: https://www.placidway.com/search-medical-pricings/Alternative-Medicine/All/1
+    label: Alternative Medicine Cost Abroad – Compare Prices 2026
+    expect: Alternative Medicine
+    fixture: 7.html
+
+# Where the real content lives on every PlacidWay page (checked on all 7). ingest/extract.py
+# also reads two small parts beside it on purpose: the header's price badge and review count,
+# and the "About ..." sidebar (address, specialities, package list).
+content_selector: main.article-dt-desc > div.pack-inner-content
+
+# Removed from the content area before extraction: the ONE boilerplate list. Checked against
+# the 7 saved pages; tests/test_extract.py fails if any of their text gets through.
+drop_selectors:
+  # Not text.
+  - script                       # schema.org JSON ("@context") on pages 1, 5, 6, 7
+  - style                        # ".custom_link{...}" CSS on the package pages
+  - noscript                     # page 5 video embeds; no text today
+  - iframe                       # pages 1 and 5 video players; no text today
+  - svg                          # icons; no text today
+  # Page furniture inside the content area.
+  - section.table-of-contents    # page 1 jump links: "Profile Details Treatments ..."
+  - "p:has(> a.custom_link)"     # package pages: "Related Experiences:" links to other clinics
+  - div.article-social-section   # package pages: like/share counters
+  - div.reviews-sec              # page 7 testimonials name no clinic, so an answer could not attribute them
+  - div.cta                      # page 7 "Ready to Explore ... free quote" box
+  - a.button                     # page 5 "Read More" link
+  - .link-button                 # pages 1 and 5 "Write a review" / "View Center Reviews" links
+  - button                       # "Chat with Center" (page 6 table), "Quote" / "Load More" (page 7)
+  # Defensive (outside the content area today): content_selector alone keeps these out. They
+  # stay listed so a redesign that moves one inside cannot leak it.
+  - form
+  - nav
+  - footer
+  - section.pw-accreditations    # platform-wide "JCI / ISO / TURKEY MOH ..." banner, not ITC's
+  - section.pw-stats-section     # "60+ countries, 2k+ clinics" platform stats
+  - div.row.related-widgets-row  # OTHER clinics' packages and prices ("$24,000", "Verita")
+  - "#cta-form"                  # quote form

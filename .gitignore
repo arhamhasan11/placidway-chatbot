@@ -1,0 +1,16 @@
+# secrets
+.env
+.env.*
+!.env.example
+.vercel
+
+# local runtime files
+data/local_log.jsonl
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+eval/out/
+
+.vercel
